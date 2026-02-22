@@ -30,18 +30,18 @@
     <h1 class="text-4xl font-bold text-[#002C5C]">Job Application Tracker</h1>
     <div class="grid grid-cols-3 gap-4 mt-5">
         <div class="bg-white p-5 rounded-md border border-[#F1F2F4]">
-            <p class="text-sm text-[#323B49] font-medium">Total</p>
-            <p class="text-2xl font-bold text-[#002B70]">0</p>
+            <p class="text-sm text-[#323B49] font-medium" >Total</p>
+            <p class="text-2xl font-bold text-[#002B70]"id="total" >0</p>
         </div>
 
         <div class="bg-white p-5 rounded-md border border-[#F1F2F4]">
-            <p class="text-sm text-[#323B49] font-medium">Interview</p>
-            <p class="text-2xl font-bold text-[#10B981]">0</p>
+            <p class="text-sm text-[#323B49] font-medium" >Interview</p>
+            <p class="text-2xl font-bold text-[#10B981]" id="interview">0</p>
         </div>
 
         <div class="bg-white p-5 rounded-md border border-[#F1F2F4]">
-            <p class="text-sm text-[#323B49] font-medium">Rejected</p>
-            <p class="text-2xl font-bold text-[#EF4444]">0</p>
+            <p class="text-sm text-[#323B49] font-medium" >Rejected</p>
+            <p class="text-2xl font-bold text-[#EF4444]" id="rejected">0</p>
         </div>
 
     </div>
@@ -53,28 +53,30 @@
      <!-- Available  -->
       <div class="flex justify-between">
         <h2 class="text-xl font-bold text-[#002C5C]">Available Jobs</h2>
-        <h3 class="text-[#64748B]">8 jobs</h3>
+        <h3 class="text-[#64748B]" id="total-jobs">0 jobs</h3>
       </div>
 
       <!--buttons -->
       <div class="mt-5 mb-3">
-        <button class="bg-[#3B82F6] px-5 py-2 rounded-md text-white text-xs mr-2 border border-[#F1F2F4]">All</button>
-        <button class="bg-white px-5 py-2 rounded-md text-[#64748B] text-xs mr-2 border border-[#F1F2F4]">Interview</button>
-        <button class="bg-white px-5 py-2 rounded-md text-[#64748B] text-xs border border-[#F1F2F4]">Rejected</button>
+        <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="bg-[#3B82F6] px-5 py-2 rounded-md text-white text-xs mr-2 border border-[#F1F2F4]">All</button>
+
+        <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="bg-white px-5 py-2 rounded-md text-[#64748B] text-xs mr-2 border border-[#F1F2F4]">Interview</button>
+
+        <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class="bg-white px-5 py-2 rounded-md text-[#64748B] text-xs border border-[#F1F2F4]">Rejected</button>
       </div>
 
       <!-- Filtered card -->
        <section id="allCards" class="space-y-5">
 
         <!-- card 1 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">Mobile First Corp</h2>
             <p class="text-[#64748B] mt-1">React Native Developer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -84,25 +86,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 2 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">WebFlow Agency</h2>
             <p class="text-[#64748B] mt-1">Web Designer & Developer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -112,25 +114,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase rejected-btn">Rejected</button>
            </div>
         </div>
 
          <!-- card 3 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">DataViz Solutions</h2>
             <p class="text-[#64748B] mt-1">Data Visualization Specialist</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -140,25 +142,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 4 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">CloudFirst Inc</h2>
             <p class="text-[#64748B] mt-1">Backend Developer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -168,25 +170,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase ">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase ">Not Applied</button>
           <p class="text-[#323B49] ">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 5 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">Innovation Labs</h2>
             <p class="text-[#64748B] mt-1">UI/UX Engineer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -196,25 +198,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 6 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">MegaCorp Solutions</h2>
             <p class="text-[#64748B] mt-1">JavaScript Developer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -224,25 +226,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 7 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">StartupXYZ</h2>
             <p class="text-[#64748B] mt-1">Full Stack Engineer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class=" delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -252,25 +254,25 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase ">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase ">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
          <!-- card 8 -->
-        <div class="bg-white p-7 rounded-md border border-[#F1F2F4]">
+        <div class="card bg-white p-7 rounded-md border border-[#F1F2F4]">
           <!-- part 1 -->
          <div class="flex justify-between">
         <div>
             <h2 class="text-xl font-bold text-[#002C5C]">TechCorp Industries</h2>
             <p class="text-[#64748B] mt-1">Senior Frontend Developer</p>
          </div>
-          <span  class="text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
+          <span  class="delete text-[#64748B] border-1 border-[#d2d3d5] rounded-full size-10  flex items-center justify-center"><i class="fa-regular fa-trash-can"></i></span>
          </div>
          <!-- part 2 -->
           <div class="flex gap-3 my-4 ">
@@ -280,24 +282,21 @@
           </div>
          <!-- part 3 -->
           <div>
-          <button class="bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
+          <button class="status bg-[#EEF4FF] py-2 px-3 rounded-md text-[#002C5C] mb-2 uppercase">Not Applied</button>
           <p class="text-[#323B49] ">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
           </div>
           <!-- part 4 -->
            <div class="mt-4">
-            <button class="text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
-            <button class="text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
+            <button class="interview-btn text-[#10B981] font-medium mr-2 border-2 border-[#10B981] py-1 px-3 rounded-md uppercase">interview</button>
+            <button class="rejected-btn text-[#EF4444] font-medium mr-2 border-2 border-[#EF4444] py-1 px-3 rounded-md uppercase">Rejected</button>
            </div>
         </div>
 
+</section>
 
+</main> 
 
-       </section>
-
-
-
-
-  </main>  
+<script src="script.js"></script>
 
 </body>
 </html>
