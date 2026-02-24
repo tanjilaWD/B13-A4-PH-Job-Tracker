@@ -24,9 +24,9 @@ querySelectorAll("css selector")
 
 Ans: New element create and insert - 
 
-const newDiv = document.createElement("div");
-newDiv.innerText = "Hello World"; 
-document.body.append(newDiv); 
+ const newDiv = document.createElement("div");
+ newDiv.innerText = "Hello World"; 
+ document.body.append(newDiv); 
 
 ## 3. What is Event Bubbling? And how does it work?
 
