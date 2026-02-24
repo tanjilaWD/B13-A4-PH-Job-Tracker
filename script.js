@@ -396,3 +396,40 @@ rejectedFilterBtn.addEventListener('click', () => {
     filterSection.classList.remove('hidden');
     renderRejected();
 });
+
+mainContainer.addEventListener('click', function(event){
+    const deleteBtn = event.target.closest('.delete-btn');
+    if(deleteBtn){
+        const card = deleteBtn.closest('.card');
+        if(!card) return;
+        const companyName = card.querySelector('.companyName').innerText;
+        interviewList = interviewList.filter(item => item.companyName !== companyName);
+        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+        card.remove();
+
+        calculateCount();
+        updateJobCount();
+    }
+
+});
+
+function updateCounts() {
+    const totalElement = document.getElementById('total');
+    const totalJobsText = document.getElementById('total-jobs');
+    const cards = document.querySelectorAll('#allCards .card');
+    const count = cards.length;
+    totalElement.innerText = count;
+    totalJobsText.innerText = `${count} job${count !== 1 ? 's' : ''}`;
+}
+
+mainContainer.addEventListener('click', function(event){
+    const deleteBtn = event.target.closest('.delete-btn');
+    if(deleteBtn){
+        const card = deleteBtn.closest('.card');
+        if(card){
+            card.remove();
+            updateCounts();;
+        }
+    }
+
+});
